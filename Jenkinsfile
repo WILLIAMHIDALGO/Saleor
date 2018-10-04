@@ -20,13 +20,13 @@ pipeline {
           echo "Succes Credentials"
           'sh git checkout master'
           echo "Checkout succes"+ env.BRANCH_NAME
-          sh 'git pull . origin/' + "${env.BRANCH_NAME}"
+          'sh git pull . origin/' + "${env.BRANCH_NAME}"
           echo "Pull succes"+ env.BRANCH_NAME
-          sh 'git merge origin/' + "${env.BRANCH_NAME}"
+          'sh git merge origin/' + "${env.BRANCH_NAME}"
           echo "merge succes"+ env.BRANCH_NAME
-          sh 'git pull'
+          'sh git pull'
           echo "pull succes"
-          sh 'git push'
+          'sh git push'
           echo "push succes"
         }
       }
