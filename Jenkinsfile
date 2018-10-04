@@ -17,11 +17,11 @@ pipeline {
       steps {
         echo "entrando a hacer el pull request y merge"
         withCredentials([usernameColonPassword(credentialsId: 'c1eba0c7-651a-41ba-8065-6307a6cb1630', variable: 'key_jenkins')]) {
-          bat 'git checkout master'
-          bat 'git pull . origin/' + "${env.BRANCH_NAME}"
-          bat 'git merge origin/' + "${env.BRANCH_NAME}"
-          bat 'git pull'
-          bat 'git push'
+          ssh 'git checkout master'
+          ssh 'git pull . origin/' + "${env.BRANCH_NAME}"
+          ssh 'git merge origin/' + "${env.BRANCH_NAME}"
+          ssh 'git pull'
+          ssh 'git push'
         }
       }
     }
