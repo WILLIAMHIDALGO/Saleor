@@ -16,8 +16,9 @@ pipeline {
       when { not { branch 'master' } }
       steps {
         echo "entrando a hacer el pull request y merge"
-        withCredentials([usernameColonPassword(credentialsId: 'c1eba0c7-651a-41ba-8065-6307a6cb1630', variable: 'key_jenkins')]) {
-          sh 'git checkout master'
+        //withCredentials([usernameColonPassword(credentialsId: 'c1eba0c7-651a-41ba-8065-6307a6cb1630', variable: 'key_jenkins')]) {
+       withCredentials([usernameColonPassword( git credentialsId: 'c1eba0c7-651a-41ba-8065-6307a6cb1630', url: 'https://github.com/WILLIAMHIDALGO/Saleor/tree/andersonenriquez')]) {  
+        sh 'git checkout master'
           sh 'git pull . origin/' + "${env.BRANCH_NAME}"
           sh 'git merge origin/' + "${env.BRANCH_NAME}"
           sh 'git pull'
