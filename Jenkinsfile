@@ -16,7 +16,7 @@ pipeline {
       when { not { branch 'master' } }
       steps {
         echo "entrando a hacer el pull request y merge"
-        withCredentials([usernameColonPassword(credentialsId: 'WILLIAMHIDALGO', variable: 'Github2018*')]) {
+        withCredentials([string(credentialsId: 'c1eba0c7-651a-41ba-8065-6307a6cb1630', variable: 'demo_jenkis')]) {
           echo "Succes Credentials"
           sh 'git version'
           echo "Version"
