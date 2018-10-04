@@ -8,7 +8,12 @@ image: python:3.5.1
 pipelines:
   default:
     - step:
-        caches:
-          - pip
+       # caches:
+        #  - pip
         script: # Modify the commands below to build your repository.
-          - pip install -r requirements.txt
+         # - pip install -r requirements.txt
+          - pip install django
+          - apt-get update -y 
+          - apt-get install -y git 
+          - git add . 
+          - git push origin master
