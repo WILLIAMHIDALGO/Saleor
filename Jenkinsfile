@@ -18,15 +18,15 @@ pipeline {
         echo "entrando a hacer el pull request y merge"
         withCredentials([usernameColonPassword(credentialsId: 'c1eba0c7-651a-41ba-8065-6307a6cb1630', variable: 'key_jenkins')]) {
           echo "Succes Credentials"
-          'sh git checkout master'
+          sh git checkout master
           echo "Checkout succes"+ env.BRANCH_NAME
-          'sh git pull . origin/' + "${env.BRANCH_NAME}"
+          sh git pull  origin/ + "${env.BRANCH_NAME}"
           echo "Pull succes"+ env.BRANCH_NAME
-          'sh git merge origin/' + "${env.BRANCH_NAME}"
+          sh git merge origin/ + "${env.BRANCH_NAME}"
           echo "merge succes"+ env.BRANCH_NAME
-          'sh git pull'
+          sh git pull
           echo "pull succes"
-          'sh git push'
+          sh git push
           echo "push succes"
         }
       }
