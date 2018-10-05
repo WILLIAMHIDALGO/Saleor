@@ -21,7 +21,7 @@ pipeline {
         withCredentials([usernameColonPassword(credentialsId: '954ecaac-dc69-4712-9835-857c65b79f80', variable: 'key_access')]) {
           bat 'git remote show origin'
           bat 'git fetch'
-          bat 'git checkout origin/master'
+          bat 'git checkout master'
           bat 'git pull . origin/' + "${env.BRANCH_NAME}"
           bat 'git merge origin/' + "${env.BRANCH_NAME}"
           bat 'git pull'
