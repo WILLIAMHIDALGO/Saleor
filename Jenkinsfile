@@ -22,6 +22,7 @@ pipeline {
           //bat 'git fetch --depth=1 origin -p --tags'
           bat 'git remote -v'
           bat 'git show-ref'
+          bat 'git remote show origin'
           bat 'git fetch origin'
           bat 'git checkout -t -b master origin/master'
           bat 'git show-ref'
