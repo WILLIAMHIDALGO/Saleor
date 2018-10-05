@@ -31,7 +31,7 @@ pipeline {
           bat 'git branch -v -a'
           bat 'git checkout origin/master'
           bat 'git pull . origin/' + "${env.BRANCH_NAME}"
-          //bat 'git merge origin/' + "${env.BRANCH_NAME}"
+          bat 'git merge origin/' + "${env.BRANCH_NAME}"
           bat 'git pull'
           bat 'git push'
         }
