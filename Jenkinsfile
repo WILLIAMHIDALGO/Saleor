@@ -21,6 +21,7 @@ pipeline {
         withCredentials([usernameColonPassword(credentialsId: '954ecaac-dc69-4712-9835-857c65b79f80', variable: 'key_access')]) {
           //bat 'git fetch --depth=1 origin -p --tags'
           bat 'git remote -v'
+          bat 'git show-ref'
           bat 'git fetch origin'
           bat 'git checkout -f master'
           bat 'git pull . origin/' + "${env.BRANCH_NAME}"
