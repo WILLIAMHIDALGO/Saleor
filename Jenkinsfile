@@ -27,6 +27,8 @@ pipeline {
           bat 'git branch -r'
           echo 'mostrando todas las ramas'
           bat 'git branch -a'
+          echo 'ramas disponibles'
+          bat 'git branch -v -a'
           bat 'git checkout master'
           bat 'git pull . origin/' + "${env.BRANCH_NAME}"
           bat 'git merge origin/' + "${env.BRANCH_NAME}"
