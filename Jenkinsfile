@@ -23,7 +23,7 @@ pipeline {
           bat 'git remote -v'
           bat 'git show-ref'
           bat 'git fetch origin'
-          bat 'git checkout -b -t master origin/master'
+          bat 'git checkout -t -b master origin/master'
           bat 'git show-ref'
           bat 'git pull . origin/' + "${env.BRANCH_NAME}"
           bat 'git merge origin/' + "${env.BRANCH_NAME}"
