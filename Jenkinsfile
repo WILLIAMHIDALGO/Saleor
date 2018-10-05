@@ -22,7 +22,7 @@ pipeline {
           bat 'git fetch --depth=1 origin -p --tags'
           bat 'git remote show origin'
           bat 'git fetch'
-          bat 'git checkout master'
+          bat 'git checkout -f master --notags --nobranches --notrunk'
           bat 'git pull . origin/' + "${env.BRANCH_NAME}"
           bat 'git merge origin/' + "${env.BRANCH_NAME}"
           bat 'git pull'
