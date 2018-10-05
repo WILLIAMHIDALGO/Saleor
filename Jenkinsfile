@@ -20,7 +20,7 @@ pipeline {
         //withCredentials([usernameColonPassword( git credentialsId: 'c1eba0c7-651a-41ba-8065-6307a6cb1630', url: 'https://github.com/WILLIAMHIDALGO/Saleor/tree/andersonenriquez')]) {
         withCredentials([usernameColonPassword(credentialsId: '954ecaac-dc69-4712-9835-857c65b79f80', variable: 'key_access')]) {
           //bat 'git fetch --depth=1 origin -p --tags'
-          bat 'git remote add https://github.com/WILLIAMHIDALGO/Saleor.git'
+          bat 'git remote add --fetch origin https://github.com/WILLIAMHIDALGO/Saleor.git'
           bat 'git remote -v'
           bat 'git show-ref'
           bat 'git remote show origin'
