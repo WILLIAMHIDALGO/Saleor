@@ -34,7 +34,7 @@ pipeline {
           bat 'git pull . origin/' + "${env.BRANCH_NAME}" + ' --allow-unrelated-histories'
           bat 'git merge origin/' + "${env.BRANCH_NAME}"
           bat 'git pull'
-          bat 'git push'
+          bat 'git push origin/master'
         }
       }
     }
