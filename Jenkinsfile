@@ -21,13 +21,13 @@ pipeline {
         withCredentials([usernameColonPassword(credentialsId: '954ecaac-dc69-4712-9835-857c65b79f80', variable: 'key_access')]) {
           //bat 'git fetch --depth=1 origin -p --tags'
           bat 'git remote set-url origin https://github.com/WILLIAMHIDALGO/Saleor.git'
-          bat 'git show-ref'
+          echo 'mostrando remote show origin'
+          bat 'git remote show origin'
           echo 'mostrando ramas remotas'
           bat 'git branch -r'
           echo 'mostrando todas las ramas'
           bat 'git branch -a'
           bat 'git checkout master'
-          //bat 'git show-ref'
           bat 'git pull . origin/' + "${env.BRANCH_NAME}"
           bat 'git merge origin/' + "${env.BRANCH_NAME}"
           bat 'git pull'
