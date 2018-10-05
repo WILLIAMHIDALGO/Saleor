@@ -29,6 +29,7 @@ pipeline {
           bat 'git branch -a'
           echo 'ramas disponibles'
           bat 'git branch -v -a'
+          bat 'git fetch origin'
           bat 'git checkout origin/master'
           bat 'git pull . origin/' + "${env.BRANCH_NAME}" + ' --allow-unrelated-histories'
           bat 'git merge origin/' + "${env.BRANCH_NAME}"
