@@ -19,9 +19,9 @@ pipeline {
         //withCredentials([usernameColonPassword(credentialsId: 'c1eba0c7-651a-41ba-8065-6307a6cb1630', variable: 'key_jenkins')]) {
         //withCredentials([usernameColonPassword( git credentialsId: 'c1eba0c7-651a-41ba-8065-6307a6cb1630', url: 'https://github.com/WILLIAMHIDALGO/Saleor/tree/andersonenriquez')]) {
         withCredentials([usernameColonPassword(credentialsId: '954ecaac-dc69-4712-9835-857c65b79f80', variable: 'key_access')]) {
-          bat 'git fetch --depth=1 origin -p --tags'
+          //bat 'git fetch --depth=1 origin -p --tags'
           bat 'git remote -v'
-          //bat 'git fetch --notags --nobranches --notrunk'
+          bat 'git fetch origin'
           bat 'git checkout -f master'
           bat 'git pull . origin/' + "${env.BRANCH_NAME}"
           bat 'git merge origin/' + "${env.BRANCH_NAME}"
