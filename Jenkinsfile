@@ -16,9 +16,21 @@ pipeline {
       when { not { branch 'master' } }
       steps {
         echo "entrando a hacer el pull request y merge"
-        withCredentials([usernameColonPassword(credentialsId: 'c1eba0c7-651a-41ba-8065-6307a6cb1630', variable: 'key_jenkins')]) {
-          bat 'git checkout master'
-          bat 'git pull . origin/' + "${env.BRANCH_NAME}"
+        //withCredentials([usernameColonPassword(credentialsId: 'c1eba0c7-651a-41ba-8065-6307a6cb1630', variable: 'key_jenkins')]) {
+        //withCredentials([usernameColonPassword( git credentialsId: 'c1eba0c7-651a-41ba-8065-6307a6cb1630', url: 'https://github.com/WILLIAMHIDALGO/Saleor/tree/andersonenriquez')]) {
+        withCredentials([usernameColonPassword(credentialsId: '954ecaac-dc69-4712-9835-857c65b79f80', variable: 'key_access')]) {
+          //bat 'git fetch --depth=1 origin -p --tags'
+          bat 'git remote set-url origin https://github.com/WILLIAMHIDALGO/Saleor.git'
+          echo 'mostrando remote show origin'
+          bat 'git remote show origin'
+          echo 'mostrando ramas remotas'
+          bat 'git branch -r'
+          echo 'mostrando todas las ramas'
+          bat 'git branch -a'
+          echo 'ramas disponibles'
+          bat 'git branch -v -a'
+          bat 'git checkout origin/master'
+          bat 'git pull . origin/' + "${env.BRANCH_NAME}" + ' --allow-unrelated-histories'
           bat 'git merge origin/' + "${env.BRANCH_NAME}"
           bat 'git pull'
           bat 'git push'
