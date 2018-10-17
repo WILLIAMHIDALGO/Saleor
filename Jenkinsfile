@@ -16,7 +16,8 @@ pipeline {
       when { not { branch 'master' } }
       steps {
         echo "entrando a hacer el pull request y merge"
-        withCredentials([usernameColonPassword(credentialsId: '223e7b15-37f0-432a-b8d2-2f5e6ab02574', variable: 'key_access_anderojas1')]) {
+        withCredentials([usernameColonPassword(credentialsId: '44418711-d740-465e-8027-b85b0cb8ac73', variable: 'key_access')]) {
+          sh 'git --version'
           sh 'git remote set-url origin https://github.com/WILLIAMHIDALGO/Saleor.git'
           echo 'mostrando remote show origin'
           sh 'git remote show origin'
