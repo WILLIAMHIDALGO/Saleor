@@ -30,7 +30,7 @@ pipeline {
           sh 'git checkout origin/master'
           sh 'git pull . origin/' + "${env.BRANCH_NAME}" + ' --allow-unrelated-histories'
           sh 'git merge origin/' + "${env.BRANCH_NAME}"
-          sh 'git pull'
+          //sh 'git pull'
           sh 'git push origin HEAD:master'
           echo 'Proceso finalizado'
         }
