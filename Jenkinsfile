@@ -17,7 +17,7 @@ pipeline {
       steps {
         echo "entrando a hacer el pull request y merge"
         withCredentials([usernameColonPassword(credentialsId: '44418711-d740-465e-8027-b85b0cb8ac73', variable: 'key_access')]) {
-          sh 'git remote set-url origin git@github.com:WILLIAMHIDALGO/Saleor.git'
+          sh 'git ls-remote -h git@github.com:WILLIAMHIDALGO/Saleor.git HEAD'
           echo 'mostrando remote show origin'
           sh 'git remote show origin'
           echo 'mostrando ramas remotas'
