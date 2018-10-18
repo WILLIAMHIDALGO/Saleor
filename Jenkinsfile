@@ -16,7 +16,7 @@ pipeline {
       when { not { branch 'master' } }
       steps {
         echo "entrando a hacer el pull request y merge"
-        withCredentials([sshUserPrivateKey(credentialsId: '1bc5bc64-bbbf-4118-abcc-6530fcd671f0', keyFileVariable: 'key_ssh_madesoft', passphraseVariable: '', usernameVariable: 'madesoft.2.2018@gmail.com')]) {
+        withCredentials([sshUserPrivateKey(credentialsId: '1bc5bc64-bbbf-4118-abcc-6530fcd671f0', keyFileVariable: '/root/.ssh/id_rsa', passphraseVariable: '', usernameVariable: 'Madesoft')]) {
           sh 'git --version'
           sh 'git remote set-url origin git@github.com:WILLIAMHIDALGO/Saleor.git'
           echo 'mostrando remote show origin'
