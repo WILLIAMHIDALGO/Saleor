@@ -17,7 +17,6 @@ pipeline {
       steps {
         echo "entrando a hacer el pull request y merge"
         withCredentials([sshUserPrivateKey(credentialsId: '20f8159b-d214-48c3-9f07-4ae2aa3af5a9', keyFileVariable: '', passphraseVariable: '', usernameVariable: '')]) {
-          sh 'git --version'
           sh 'git remote set-url origin https://Madesoft:Madesoft2018*@github.com/WILLIAMHIDALGO/Saleor.git'
           echo 'mostrando remote show origin'
           sh 'git remote show origin'
@@ -32,10 +31,8 @@ pipeline {
           sh 'git pull . origin/' + "${env.BRANCH_NAME}" + ' --allow-unrelated-histories'
           sh 'git merge origin/' + "${env.BRANCH_NAME}"
           //sh 'git pull'
-          sh 'git config user.name "Madesoft"'
-          sh 'git config user.email "madesoft.2.2018@gmail.com"'
           sh 'git push origin HEAD:master'
-          echo 'Proceso finalizado de nuevo'
+          echo 'Proceso finalizado exitosamente'
         }
       }
     }
