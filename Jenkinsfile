@@ -5,15 +5,18 @@ pipeline {
       steps {
         echo 'Entrando a pipeline'
       }
+    }
+    stage('Paso 2: rama de ejecución') {
       steps {
         echo 'Rama ' + env.BRANCH_NAME
       }
+    }
+    stage ("Paso 3: Rama de desarrollador") {
       // si no es la rama master entonces ejecuta la integración continua
       when { not { branch 'master' } }
       steps {
         echo "entrando a hacer el pull request y merge"
         withCredentials([sshUserPrivateKey(credentialsId: '20f8159b-d214-48c3-9f07-4ae2aa3af5a9', keyFileVariable: '', passphraseVariable: '', usernameVariable: '')]) {
-          sh 'cd projects/saleor_checkout/'
           sh 'git remote set-url origin https://Madesoft:Madesoft2018*@github.com/WILLIAMHIDALGO/Saleor.git'
           echo 'mostrando ramas remotas'
           sh 'git branch -r'
