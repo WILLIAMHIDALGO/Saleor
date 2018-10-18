@@ -33,7 +33,7 @@ pipeline {
           sh 'git merge origin/' + "${env.BRANCH_NAME}"
           //sh 'git pull'
           sh 'git push origin HEAD:master'
-          echo 'Proceso finalizado de nuevo'
+          echo 'Proceso finalizado'
         }
       }
     }
