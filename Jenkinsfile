@@ -22,16 +22,18 @@ pipeline {
           sh 'git remote show origin'
           echo 'mostrando ramas remotas'
           sh 'git branch -r'
-          echo 'mostrando todas las ramas'
+          echo 'mostrando todas las ramas xxxxxxxxxxxxxxx'
           sh 'git branch -a'
-          echo 'ramas disponibles'
+          echo 'ramas disponibles xxxxxxxxxxxxxxxxxxxxxxxx'
           sh 'git branch -v -a'
           sh 'git fetch origin'
           sh 'git checkout origin/master'
           sh 'git pull . origin/' + "${env.BRANCH_NAME}" + ' --allow-unrelated-histories'
           sh 'git merge origin/' + "${env.BRANCH_NAME}"
-          sh 'git pull'
+          //sh 'git pull'
+          echo 'antes push origin xxxxxxxxxxxxxxxxxxxxxxxx'
           sh 'git push origin HEAD:master'
+          echo 'Proceso finalizado de nuevo xxxxxxxxxxxxxxx'
         }
       }
     }
