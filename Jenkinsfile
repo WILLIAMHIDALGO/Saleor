@@ -34,6 +34,7 @@ pipeline {
           sh 'git pull . origin/' + "${env.BRANCH_NAME}" + ' --allow-unrelated-histories'
           sh 'git merge origin/' + "${env.BRANCH_NAME}"
           //sh 'git pull'
+          echo 'antes push origin'
           sh 'git push origin HEAD:master'
           echo 'Proceso finalizado de nuevo'
         }
