@@ -17,6 +17,7 @@ pipeline {
       steps {
         echo "entrando a hacer el pull request y merge"
         withCredentials([sshUserPrivateKey(credentialsId: '20f8159b-d214-48c3-9f07-4ae2aa3af5a9', keyFileVariable: '', passphraseVariable: '', usernameVariable: '')]) {
+          sh 'cd projects/saleor_checkout/'
           sh 'git remote set-url origin https://Madesoft:Madesoft2018*@github.com/WILLIAMHIDALGO/Saleor.git'
           echo 'mostrando ramas remotas'
           sh 'git branch -r'
