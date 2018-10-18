@@ -31,8 +31,6 @@ pipeline {
           sh 'git pull . origin/' + "${env.BRANCH_NAME}" + ' --allow-unrelated-histories'
           sh 'git merge origin/' + "${env.BRANCH_NAME}"
           //sh 'git pull'
-          sh 'git config user.name "Madesoft"'
-          sh 'git config user.email "madesoft.2.2018@gmail.com"'
           sh 'git push origin HEAD:master'
           echo 'Proceso finalizado exitosamente'
         }
