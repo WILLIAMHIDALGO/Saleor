@@ -27,7 +27,7 @@ pipeline {
           //sh 'git pull'
           sh 'git push origin HEAD:master'
           echo 'Proceso finalizado exitosamente'
-          echo 'probando nuevamente evento webhook con nueva proyecto'
+          echo 'probando nuevamente evento webhook con nueva proyecto prueba'
         }
       }
     }
