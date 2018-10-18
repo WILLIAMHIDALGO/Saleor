@@ -16,27 +16,24 @@ pipeline {
       when { not { branch 'master' } }
       steps {
         echo "entrando a hacer el pull request y merge"
-        //withCredentials([usernameColonPassword(credentialsId: 'c1eba0c7-651a-41ba-8065-6307a6cb1630', variable: 'key_jenkins')]) {
-        //withCredentials([usernameColonPassword( git credentialsId: 'c1eba0c7-651a-41ba-8065-6307a6cb1630', url: 'https://github.com/WILLIAMHIDALGO/Saleor/tree/andersonenriquez')]) {
-        withCredentials([usernameColonPassword(credentialsId: '44418711-d740-465e-8027-b85b0cb8ac73', variable: 'key_jenkins')]) {
-          //bat 'git fetch --depth=1 origin -p --tags'
+        withCredentials([usernameColonPassword(credentialsId: '44418711-d740-465e-8027-b85b0cb8ac73', variable: 'key_access')]) {
+          sh 'git --version'
           sh 'git remote set-url origin https://github.com/WILLIAMHIDALGO/Saleor.git'
           echo 'mostrando remote show origin'
           sh 'git remote show origin'
           echo 'mostrando ramas remotas'
           sh 'git branch -r'
-          echo 'mostrando todas las ramas xxxxxxxxxxxxxxx'
+          echo 'mostrando todas las ramas'
           sh 'git branch -a'
-          echo 'ramas disponibles nuevo xxxxxxxxxxxxxxxxxxxxxxxx'
+          echo 'ramas disponibles'
           sh 'git branch -v -a'
           sh 'git fetch origin'
           sh 'git checkout origin/master'
           sh 'git pull . origin/' + "${env.BRANCH_NAME}" + ' --allow-unrelated-histories'
           sh 'git merge origin/' + "${env.BRANCH_NAME}"
           //sh 'git pull'
-          echo 'antes push origin xxxxxxxxxxxxxxxxxxxxxxxx'
           sh 'git push origin HEAD:master'
-          echo 'Proceso finalizado de nuevo xxxxxxxxxxxxxxx'
+          echo 'Proceso finalizado de nuevo'
         }
       }
     }
@@ -44,7 +41,7 @@ pipeline {
       // si es la rama master no se hace integración
       when { branch 'master'}
       steps {
-        echo 'Sólo se ejecuta en ramas de desarroladores'
+        echo 'Sólo se ejecuta en ramas de desarrolladores'
       }
     }
   }
