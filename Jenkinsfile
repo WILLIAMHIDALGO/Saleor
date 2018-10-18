@@ -35,7 +35,7 @@ pipeline {
           sh 'git config user.name "Madesoft"'
           sh 'git config user.email "madesoft.2.2018@gmail.com"'
           sh 'git push origin HEAD:master'
-          echo 'Proceso finalizado de nuevo'
+          echo 'Proceso finalizado'
         }
       }
     }
