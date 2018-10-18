@@ -18,8 +18,6 @@ pipeline {
         echo "entrando a hacer el pull request y merge"
         withCredentials([sshUserPrivateKey(credentialsId: '20f8159b-d214-48c3-9f07-4ae2aa3af5a9', keyFileVariable: '', passphraseVariable: '', usernameVariable: '')]) {
           sh 'git remote set-url origin https://Madesoft:Madesoft2018*@github.com/WILLIAMHIDALGO/Saleor.git'
-          echo 'mostrando remote show origin'
-          sh 'git remote show origin'
           echo 'mostrando ramas remotas'
           sh 'git branch -r'
           sh 'git fetch origin'
@@ -29,6 +27,7 @@ pipeline {
           //sh 'git pull'
           sh 'git push origin HEAD:master'
           echo 'Proceso finalizado exitosamente'
+          echo 'probando webhook'
         }
       }
     }
