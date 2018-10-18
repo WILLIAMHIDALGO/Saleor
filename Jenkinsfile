@@ -27,7 +27,7 @@ pipeline {
           sh 'git branch -r'
           echo 'mostrando todas las ramas xxxxxxxxxxxxxxx'
           sh 'git branch -a'
-          echo 'ramas disponibles xxxxxxxxxxxxxxxxxxxxxxxx'
+          echo 'ramas disponibles nuevo xxxxxxxxxxxxxxxxxxxxxxxx'
           sh 'git branch -v -a'
           sh 'git fetch origin'
           sh 'git checkout origin/master'
