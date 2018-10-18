@@ -16,7 +16,10 @@ pipeline {
       when { not { branch 'master' } }
       steps {
         echo "entrando a hacer el pull request y merge"
-        withCredentials([usernameColonPassword(credentialsId: '44418711-d740-465e-8027-b85b0cb8ac73', variable: 'key_access')]) {
+        //withCredentials([usernameColonPassword(credentialsId: 'c1eba0c7-651a-41ba-8065-6307a6cb1630', variable: 'key_jenkins')]) {
+        //withCredentials([usernameColonPassword( git credentialsId: 'c1eba0c7-651a-41ba-8065-6307a6cb1630', url: 'https://github.com/WILLIAMHIDALGO/Saleor/tree/andersonenriquez')]) {
+        withCredentials([usernameColonPassword(credentialsId: '44418711-d740-465e-8027-b85b0cb8ac73', variable: 'key_jenkins')]) {
+          //bat 'git fetch --depth=1 origin -p --tags'
           sh 'git remote set-url origin https://github.com/WILLIAMHIDALGO/Saleor.git'
           echo 'mostrando remote show origin'
           sh 'git remote show origin'
@@ -24,7 +27,7 @@ pipeline {
           sh 'git branch -r'
           echo 'mostrando todas las ramas xxxxxxxxxxxxxxx'
           sh 'git branch -a'
-          echo 'ramas disponibles xxxxxxxxxxxxxxxxxxxxxxxx'
+          echo 'ramas disponibles nuevo xxxxxxxxxxxxxxxxxxxxxxxx'
           sh 'git branch -v -a'
           sh 'git fetch origin'
           sh 'git checkout origin/master'
