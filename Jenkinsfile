@@ -16,7 +16,7 @@ pipeline {
       when { not { branch 'master' } }
       steps {
         echo "entrando a hacer el pull request y merge"
-       withCredentials([usernameColonPassword(credentialsId: 'WILLIAMHIDALGO', variable: 'Github2018*'))]) {
+       withCredentials([usernameColonPassword(credentialsId: 'WILLIAMHIDALGO', variable: 'Github2018*')]) {
           sh 'git --version'
           sh 'git remote set-url origin https://github.com/WILLIAMHIDALGO/Saleor.git'
           echo 'mostrando remote show origin'
