@@ -5,13 +5,9 @@ pipeline {
       steps {
         echo 'Entrando a pipeline'
       }
-    }
-    stage('Paso 2: rama de ejecución') {
       steps {
         echo 'Rama ' + env.BRANCH_NAME
       }
-    }
-    stage ("Paso 3: Rama de desarrollador") {
       // si no es la rama master entonces ejecuta la integración continua
       when { not { branch 'master' } }
       steps {
